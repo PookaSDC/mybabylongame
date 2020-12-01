@@ -39,6 +39,13 @@
 
 			box.position.y = 0.5;
 
+			scene.actionManager = new BABYLON.ActionManager(scene);
+
+			scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction({trigger: BABYLON.ActionManager.OnKeyUpTrigger, parameter: 'w'}, function () { box.position.z++; }))
+			scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction({trigger: BABYLON.ActionManager.OnKeyUpTrigger, parameter: 'a'}, function () { box.position.x--; }))
+			scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction({trigger: BABYLON.ActionManager.OnKeyUpTrigger, parameter: 's'}, function () { box.position.z--; }))
+			scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction({trigger: BABYLON.ActionManager.OnKeyUpTrigger, parameter: 'd'}, function () { box.position.x++; }))
+
 	            const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 15, new BABYLON.Vector3(0, 0, 0));
 	            camera.attachControl(canvas, true);
 	            const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
