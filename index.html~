@@ -30,7 +30,12 @@
 		var createScene = function() {
 		    var scene = new BABYLON.Scene(engine);
 			const box = BABYLON.MeshBuilder.CreateBox("box", {})
+
+			const sdcGround = new BABYLON.StandardMaterial("sdcGround");
+			sdcGround.diffuseTexture = new BABYLON.Texture("assets/png/y.png", scene);
 			const ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 10, height: 10})
+			
+			ground.material = sdcGround;
 
 			box.position.y = 0.5;
 
